@@ -1,0 +1,56 @@
+body {
+    margin: 0 40px 40px 40px;
+}
+.tea-party-guest {
+    line-height: 1.7em;
+    border: 1px solid #666;
+    border-radius: 4px;
+    margin-bottom: 19px;
+    padding: 9px;
+}
+.button-xsmall {
+    font-size: 70%;
+}
+
+.button-small {
+    font-size: 85%;
+}
+.answer-input {
+    margin-right: 7px;
+}
+#showAllAnswers {
+    display: none;
+}
+
+.wrong-answer {
+    color: red;
+}
+.correct-answer {
+    color: green;
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+.red {
+    color: #f00;
+}
+.black {
+    color: #000;
+}
+noscript {
+    color: #f00;
+}
+#afterButtons {
+    display: none;
+}
+#output ol {
+    list-style-type: none;
+}
+button#generatePairs {
+    display: none;
+}
+table {
+    border: none;
+    margin-top: 19px;
+}
