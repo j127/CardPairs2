@@ -35,24 +35,28 @@ _gaq.push(['_trackPageview']);
 <div id="cardPairs">
 <form id="" class="">
     <p>Select suit pairs to generate:</p>
+
     <select id="holdingCard" name="holdingCard">
         <option value="-">-- Choose</option>
         <option value="jack">Jack</option>
         <option value="queen">Queen</option>
         <option value="king">King</option>
     </select> <span class="red">*</span>
+
     <select id="holdingCardPosition" name="holdingCardPosition">
         <option value="-">-- Choose</option>
         <option value="1">First</option>
         <option value="2">Second</option>
     </select> <span class="red">*</span>
-    <select id="suit2" name="suit2">
+    
+    <select id="loopSuits" name="loopSuits">
         <option value="-">-- Choose</option>
-        <option value="spades">&spades; Spades</option>
-        <option value="hearts">&hearts; Hearts</option>
-        <option value="diamonds">&diams; Diamonds</option>
-        <option value="clubs">&clubs; Clubs</option>
+        <option value="shdc-sc">Hold &spades; &hearts; &diams; &clubs;, loop over &spades; &clubs;</option>
+        <option value="shdc-hd">Hold &spades; &hearts; &diams; &clubs;, loop over &hearts; &diams;</option>
+        <option value="sc-shdc">Hold &spades; &clubs;, loop over &spades; &hearts; &diams; &clubs;</option>
+        <option value="hd-shdc">Hold &hearts; &diams;, loop over &spades; &hearts; &diams; &clubs;</option>
     </select> <span class="red">*</span>
+
     <!-- <img id="loaderGif" src="images/loader.gif"> --><button id="generatePairs" class="pure-button pure-button-primary">Generate Pairs</button>
 </form>
         <div id="output"></div>
