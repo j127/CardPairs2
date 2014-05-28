@@ -35,12 +35,16 @@ _gaq.push(['_trackPageview']);
 <div id="cardPairs">
 <form id="" class="">
     <p>Select suit pairs to generate:</p>
-    <select id="suit1" name="suit1">
+    <select id="holdingCard" name="holdingCard">
         <option value="-">-- Choose</option>
-        <option value="spades">&spades; Spades</option>
-        <option value="hearts">&hearts; Hearts</option>
-        <option value="diamonds">&diams; Diamonds</option>
-        <option value="clubs">&clubs; Clubs</option>
+        <option value="jack">Jack</option>
+        <option value="queen">Queen</option>
+        <option value="king">King</option>
+    </select> <span class="red">*</span>
+    <select id="holdingCardPosition" name="holdingCardPosition">
+        <option value="-">-- Choose</option>
+        <option value="1">First</option>
+        <option value="2">Second</option>
     </select> <span class="red">*</span>
     <select id="suit2" name="suit2">
         <option value="-">-- Choose</option>
