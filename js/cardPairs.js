@@ -125,75 +125,18 @@ var loopPattern = {
     }
 };
 
-// holdingCard is the card that doesn't change
-// position is whether it appears first (1) or second (2)
-// holdingCardSuitsArray is an array of suits for the holding card
-// suitsLoopArray is an array of suits to loop over
-function generateCards(holdingCard, position, holdingCardSuitsArray, suitsLoopArray) {
-    var currentHoldingCard = {},
-        cardPairs = {};
-
-    cardPairs.pairs = [];
+// TODO: Deal with the interface later
+//$('#holdingCard').on('change', function (e) {
+    //var optionText = $('#loopSuits option');
+    //var optionsArray = [];
+    //_.each(optionText, function (optionHtml) {
+        //console.log(optionHtml);
+    //});
+    ////console.log(optionText);
+    //var replacer = $('#holdingCard option:selected').html();
+    //console.log(replacer);
+    //// TODO: replace the text with the card names
+    //var replacedOptions = optionText.replace(new RegExp("Hold", "g"), replacer);
+    //$("#loopSuits option").text(replacedOptions);
     
-    // For each holdingCardSuitsArray build a set with each suitsLoopArray
-    for (var i = 0, len = holdingCardSuitsArray.length; i < len; i ++) {
-
-    }
-    $(holdingCardSuitsArray).each(function (holdingSuit) {
-        currentHoldingCard = convertToCardObject(holdingSuit); // TODO: this should be something like king of spades, then king of hearts, etc.
-
-        // TODO: 
-        // Loop over suitsLoopArray
-        $(suitsLoopArray).each(function (loopSuit) {
-            // Build a set of cards
-            for (var i = 0, len = cards.values.length; i < len; i ++) {
-                currentCard = ''; // TODO
-            }
-        });
-    });
-    // First loop over card values
-    _.each(cards.values, function(val1) {
-        // Second loop over card values
-        _.each(cards.values, function(val2) {
-            tmpCards = {};
-            tmpCards.card1 = {};
-            tmpCards.card1.suit = suit1entity;
-            tmpCards.card1.value = val1;
-            tmpCards.card1.color = suit1color;
-
-            tmpCards.card2 = {};
-            tmpCards.card2.suit = suit2entity;
-            tmpCards.card2.value = val2;
-            tmpCards.card2.color = suit2color;
-            outputArray.push(tmpCards);
-        });
-    });
-}
-
-function buildTemplate(cardPairsArray) {
-
-}
-
-$('#holdingCard').on('change', function (e) {
-    var optionText = $('#loopSuits option').text();
-    var replacer = $('#holdingCard option:selected').html();
-    // TODO: replace the text with the card names
-    //optionText.replace(//, replacer);
-});
-
-//var holdingCardSecond = {
-    //listOfSuitsToLoopOver: ["spades", "clubs"],
-    //holdingCardSuits: ["spades", "hearts", "diamonds", "clubs"]
-//};
-//var holdingCardSecondV2 = {
-    //listOfSuitsToLoopOver: ["hearts", "diamonds"],
-    //holdingCardSuits: ["spades", "hearts", "diamonds", "clubs"]
-//};
-//var holdingCardFirstV1 = {
-    //listOfSuitsToLoopOver: ["spades", "hearts", "diamonds", "clubs"],
-    //holdingCardSuits: ["spades", "clubs"]
-//};
-//var holdingCardFirstV2 = {
-    //listOfSuitsToLoopOver: ["spades", "hearts", "diamonds", "clubs"],
-    //holdingCardSuits: ["hearts", "diamonds"]
-//};
+//});
