@@ -41,7 +41,7 @@ function doIt(pairSettings) {
     var cardPairs = {};
     //var groups = [];
     var pairs = [];
-    var pair = [];
+    var currentPair = {};
 
     // pairSettings.holdingCard
     // pairSettings.holdingCardPosition
@@ -80,9 +80,11 @@ function doIt(pairSettings) {
                     card2 = y;
                 }
 
-                // TODO: double check this
-                pair.push(card1, card2);
-                pairs.push(pair);
+                // Clear the object
+                currentPair = {};
+                currentPair["card1"] = card1;
+                currentPair["card2"] = card2;
+                pairs.push(currentPair);
 
                 //console.log(xHoldingCardValue + " of " + xHoldingCardSuit + " | " + xLoopingCardValue + " of " + xLoopingCardSuit);
             }
@@ -90,6 +92,8 @@ function doIt(pairSettings) {
     }
     cardPairs.pairs = pairs;
     console.dir(cardPairs);
+    cardPairs.pairs = pairs;
+    renderCardPairsTemplate(cardPairs);
 }
 function renderCardPairsTemplate(cardPairs) {
     $("#output").html("");
