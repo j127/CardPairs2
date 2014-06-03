@@ -33,7 +33,7 @@ _gaq.push(['_trackPageview']);
     <button id="randomize" class="pure-button">Randomize Pairs</button>
 </div>
 <div id="cardPairs">
-<form id="" class="">
+<form id="cardPairOptionsForm" class="">
     <p>Select suit pairs to generate:</p>
 
     <select id="holdingCard" name="holdingCard">
@@ -50,7 +50,7 @@ _gaq.push(['_trackPageview']);
         <option value="4">4</option>
         <option value="3">3</option>
         <option value="2">2</option>
-        <option value="A">A</option>
+        <option value="A">Ace</option>
     </select> <span class="red">*</span>
 
     <select id="holdingCardPosition" name="holdingCardPosition">
@@ -91,7 +91,7 @@ _gaq.push(['_trackPageview']);
         <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script src="js/underscore-min.js" type="text/javascript"></script>
         <script src="js/handlebars-v1.3.0.js" type="text/javascript"></script>
-        <script src="js/main.js" type="text/javascript"></script>
+        <script src="js/cardPairs.js" type="text/javascript"></script>
         <script src="http://static.getclicky.com/js" type="text/javascript"></script>
         <script type="text/javascript">try{ clicky.init(66357052); }catch(err){}</script>
         <noscript><p><img alt="Clicky" width="1" height="1" src="http://in.getclicky.com/66357052ns.gif" /></p></noscript>
