@@ -50,6 +50,9 @@ noscript {
 button#generatePairs {
     display: none;
 }
+button#randomizeButton {
+    display: none;
+}
 table {
     border: none;
     margin-top: 19px;

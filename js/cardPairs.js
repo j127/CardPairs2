@@ -38,7 +38,8 @@ function doIt(pairSettings) {
 
     // cardPairs.pairs
     // or: cardPairs.groups.pairs (later)
-    var cardPairs = {};
+    // TODO: watch out for global variable
+    cardPairs = {};
     //var groups = [];
     var pairs = [];
     var currentPair = {};
@@ -94,6 +95,20 @@ function doIt(pairSettings) {
     console.dir(cardPairs);
     cardPairs.pairs = pairs;
     renderCardPairsTemplate(cardPairs);
+    addRandomizeButton();
+}
+function addRandomizeButton() {
+    var randomizeButton = $("#randomizeButton");
+
+    randomizeButton.fadeIn();
+    randomizeButton.on("click", function (e) {
+        e.preventDefault();
+
+        cardPairs.pairs = _.shuffle(cardPairs.pairs);
+        renderCardPairsTemplate(cardPairs);
+
+    });
+
 }
 function renderCardPairsTemplate(cardPairs) {
     $("#output").html("");
