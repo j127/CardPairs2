@@ -38,9 +38,9 @@ _gaq.push(['_trackPageview']);
 
     <select id="holdingCard" name="holdingCard">
         <option value="-">-- Choose</option>
-        <option value="king">King</option>
-        <option value="queen">Queen</option>
-        <option value="jack">Jack</option>
+        <option value="K">King</option>
+        <option value="Q">Queen</option>
+        <option value="J">Jack</option>
         <option value="10">10</option>
         <option value="9">9</option>
         <option value="8">8</option>

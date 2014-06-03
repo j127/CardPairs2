@@ -34,28 +34,62 @@ function doIt(pairSettings) {
     console.log("Doing it");
     console.dir(pairSettings);
 
+    var xHoldingCardValue, xLoopingCardSuit, xLoopingCardValue, xLoopingCardSuit;
+
+    // cardPairs.pairs
+    // or: cardPairs.groups.pairs (later)
     var cardPairs = {};
+    //var groups = [];
     var pairs = [];
+    var pair = [];
+
     // pairSettings.holdingCard
     // pairSettings.holdingCardPosition
     // pairSettings.loopSuits
     var loops = loopPattern[pairSettings.loopSuits]; // E.g., loopPattern["shdc-sc"] -- an object
-    //console.dir(loops);
-    // Loop over holding cards
-    //console.log(loops["holding"].length);
-    //console.log(loops["looping"].length);
 
+    // Loop over holding cards
     for (var i = 0, len = loops["holding"].length; i < len; i ++) {
-        //console.log("---- i = " + i + " ----");
+
+        // Here we gave the holding card suits
+
         // Loop over loop suits
         for (var j = 0, len2 = loops["looping"].length; j < len2; j ++) {
-            //console.log("---- j = " + j + " ----");
+
+            // Here we have the looping suits
 
             for (var k = 0; k < 13; k ++) {
-                console.log(pairSettings.holdingCard + " of " + loops["holding"][i] + " + " + cards.values[k] + " of " + loops["looping"][j]);
+
+                // Here we have the 13 card values being added
+                
+
+
+                xHoldingCardValue = pairSettings.holdingCard;
+                xHoldingCardSuit = loops["holding"][i];
+                xLoopingCardValue = cards.values[k];
+                xLoopingCardSuit = loops["looping"][j];
+
+                y = createCardObject(xHoldingCardValue, xHoldingCardSuit);
+                z = createCardObject(xLoopingCardValue, xLoopingCardSuit);
+
+                if (pairSettings.holdingCardPosition === 1) {
+                    card1 = y;
+                    card2 = z;
+                } else {
+                    card1 = z;
+                    card2 = y;
+                }
+
+                // TODO: double check this
+                pair.push(card1, card2);
+                pairs.push(pair);
+
+                //console.log(xHoldingCardValue + " of " + xHoldingCardSuit + " | " + xLoopingCardValue + " of " + xLoopingCardSuit);
             }
         }
     }
+    cardPairs.pairs = pairs;
+    console.dir(cardPairs);
 }
 function renderCardPairsTemplate(cardPairs) {
     $("#output").html("");
