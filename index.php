@@ -28,10 +28,6 @@ _gaq.push(['_trackPageview']);
                         <p>This script generates card pairs to practice creating mnemonic images for 2-card systems like the <a href="http://mnemotechnics.org/wiki/Ben_System">Ben System</a>. It can help you practice "reading" the card pairs as images. Or check out our other <a href="/training">memory training software</a>.</p>
     <noscript>JavaScript must be enabled to use this page.</noscript>
                     </div>
-<div id="afterButtons">
-    <button id="reloadPage" class="pure-button" disabled>Generate Another Set</button>
-    <button id="randomize" class="pure-button">Randomize Pairs</button>
-</div>
 <div id="cardPairs">
 <form id="cardPairOptionsForm" class="">
     <p>Select suit pairs to generate:</p>
@@ -79,12 +75,12 @@ _gaq.push(['_trackPageview']);
         </div>
 <script id="cardPairsTemplate" type="text/x-handlebars-template">
 <table>
-<tbody>
-{{#each pairs}}
-<tr>
-<td><span class="{{ card1.color }}">{{ card1.value }}{{{ card1.suit }}}</span></td><td><span class="{{ card2.color }}">{{ card2.value }}{{{ card2.suit }}}</span></td>
-</tr>
-    {{/each}}
+    <tbody>
+        {{#each pairs}}
+        <tr>
+            <td><span class="{{ card1.color }}">{{ card1.value }}{{{ card1.suit }}}</span></td><td><span class="{{ card2.color }}">{{ card2.value }}{{{ card2.suit }}}</span></td>
+        </tr>
+        {{/each}}
     </tbody>
 </table>
     </script>
