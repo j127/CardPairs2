@@ -51,13 +51,13 @@ _gaq.push(['_trackPageview']);
         <option value="3">3</option>
         <option value="2">2</option>
         <option value="A">Ace</option>
-    </select> <span class="red">*</span>
+    </select> <span class="validation-warning">*</span>
 
     <select id="holdingCardPosition" name="holdingCardPosition">
         <option value="-">-- Choose</option>
         <option value="1">First</option>
         <option value="2">Second</option>
-    </select> <span class="red">*</span>
+    </select> <span class="validation-warning">*</span>
     
     <select id="loopSuits" name="loopSuits">
         <option value="-">-- Choose</option>
@@ -65,9 +65,9 @@ _gaq.push(['_trackPageview']);
         <option value="shdc-hd">Hold &spades; &hearts; &diams; &clubs;, loop over &hearts; &diams;</option>
         <option value="sc-shdc">Hold &spades; &clubs;, loop over &spades; &hearts; &diams; &clubs;</option>
         <option value="hd-shdc">Hold &hearts; &diams;, loop over &spades; &hearts; &diams; &clubs;</option>
-    </select> <span class="red">*</span>
+    </select> <span class="validation-warning">*</span>
 
-    <!-- <img id="loaderGif" src="images/loader.gif"> --><button id="generatePairs" class="pure-button pure-button-primary">Generate Pairs</button> <button id="randomizeButton" class="pure-button">Randomize Pairs</button>
+    <!-- <img id="loaderGif" src="images/loader.gif"> --><button id="generatePairs" class="pure-button pure-button-primary" disabled>Generate Pairs</button> <button id="randomizeButton" class="pure-button">Randomize Pairs</button>
 </form>
         <div id="output"></div>
     </div>

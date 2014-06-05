@@ -32,7 +32,7 @@ body {
 .button-success {
     background: rgb(28, 184, 65); /* this is a green */
 }
-.red {
+.validation-warning, .red {
     color: #f00;
 }
 .black {
