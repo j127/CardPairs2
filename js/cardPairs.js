@@ -41,7 +41,10 @@ function doIt(pairSettings) {
     console.log("Doing it");
     console.dir(pairSettings);
 
-    var xHoldingCardValue, xLoopingCardSuit, xLoopingCardValue, xLoopingCardSuit;
+    var xHoldingCardValue,
+        xLoopingCardSuit,
+        xLoopingCardValue,
+        xLoopingCardSuit;
 
     // cardPairs.pairs
     // or: cardPairs.groups.pairs (later)
@@ -60,7 +63,7 @@ function doIt(pairSettings) {
     // Loop over holding cards
     for (var i = 0, len = loops["holding"].length; i < len; i ++) {
 
-        // Here we gave the holding card suits
+        // Here we have the holding card suits
 
         // Loop over loop suits
         for (var j = 0, len2 = loops["looping"].length; j < len2; j ++) {
@@ -70,8 +73,6 @@ function doIt(pairSettings) {
             for (var k = 0; k < 13; k ++) {
 
                 // Here we have the 13 card values being added
-                
-
 
                 xHoldingCardValue = pairSettings.holdingCard;
                 xHoldingCardSuit = loops["holding"][i];
@@ -108,6 +109,7 @@ function doIt(pairSettings) {
     renderCardPairsTemplate(cardPairs);
     addRandomizeButton();
 }
+
 function addRandomizeButton() {
     var randomizeButton = $("#randomizeButton");
 
@@ -121,13 +123,7 @@ function addRandomizeButton() {
     });
 
 }
-function renderCardPairsTemplate(cardPairs) {
-    $("#output").html("");
-    var source = $("#cardPairsTemplate").html();
-    var template = Handlebars.compile(source);
-    var html = template(cardPairs);
-    $("#output").append(html);
-}
+
 function createCardObject(value, suit) {
     var suit,
         color,
@@ -136,14 +132,31 @@ function createCardObject(value, suit) {
     card = cards.suits[suit];
     suit = card["entity"];
     color = card["color"];
-    //color = "blue";
 
     return {
         value: value,
-        suit: suit, // Entity
+        suit: suit, // HTML entity
         color: color
     }
 }
+
+function convertToCardObject(suitName) {
+
+    // Returns an object with an entity and color
+    return cards.suits[suitName];
+}
+
+function renderCardPairsTemplate(cardPairs) {
+
+    // Compile Handlebars template
+    $("#output").html("");
+    var source = $("#cardPairsTemplate").html();
+    var template = Handlebars.compile(source);
+    var html = template(cardPairs);
+    $("#output").append(html);
+}
+
+// Data
 var cards = {};
 cards.suits = { 
     "spades": {
@@ -164,12 +177,9 @@ cards.suits = {
     }
 };
 cards.values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-function convertToCardObject(suitName) {
-    // Returns an object with an entity and color
-    return cards.suits[suitName];
-}
 
 var loopPattern = {
+
     // The keys are passed in from the form
     "shdc-sc": {
         "holding": ["spades", "hearts", "diamonds", "clubs"],
@@ -188,19 +198,3 @@ var loopPattern = {
         "looping": ["spades", "hearts", "diamonds", "clubs"]
     }
 };
-
-// TODO: Deal with the interface later
-//$('#holdingCard').on('change', function (e) {
-    //var optionText = $('#loopSuits option');
-    //var optionsArray = [];
-    //_.each(optionText, function (optionHtml) {
-        //console.log(optionHtml);
-    //});
-    ////console.log(optionText);
-    //var replacer = $('#holdingCard option:selected').html();
-    //console.log(replacer);
-    //// TODO: replace the text with the card names
-    //var replacedOptions = optionText.replace(new RegExp("Hold", "g"), replacer);
-    //$("#loopSuits option").text(replacedOptions);
-    
-//});
