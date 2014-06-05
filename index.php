@@ -29,7 +29,7 @@ _gaq.push(['_trackPageview']);
     <noscript>JavaScript must be enabled to use this page.</noscript>
                     </div>
 <div id="afterButtons">
-    <button id="reloadPage" class="pure-button">Generate Another Set</button>
+    <button id="reloadPage" class="pure-button" disabled>Generate Another Set</button>
     <button id="randomize" class="pure-button">Randomize Pairs</button>
 </div>
 <div id="cardPairs">

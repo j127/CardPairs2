@@ -1,10 +1,16 @@
 $(document).ready(function () {
+
+    // Assign variabled to elements
     var generatePairsButton = $("#generatePairs");
 
-    generatePairsButton.fadeIn().attr("disabled", true);
+    // Initial page manipulation
+    generatePairsButton.fadeIn(); // It starts disabled
+
+    // Attach event handlers
     $("#cardPairOptionsForm select").on("change", function (e) {
         onSelectBoxChange();
     });
+
     generatePairsButton.on("click", function (e) {
         e.preventDefault();
 
@@ -24,6 +30,7 @@ function onSelectBoxChange() {
         loopSuits = $("#loopSuits").val();
 
     if (holdingCard !== "-" && holdingCardPosition !== "-" && loopSuits !== "-") {
+        // It's disabled by default with an HTML attribute, but this is to be sure it's disabled if they invalidate a validated form.
         $("#generatePairs").attr("disabled", false);
     } else {
         $("#generatePairs").attr("disabled", true);
@@ -43,6 +50,7 @@ function doIt(pairSettings) {
     //var groups = [];
     var pairs = [];
     var currentPair = {};
+    var card1, card2;
 
     // pairSettings.holdingCard
     // pairSettings.holdingCardPosition
@@ -73,12 +81,15 @@ function doIt(pairSettings) {
                 y = createCardObject(xHoldingCardValue, xHoldingCardSuit);
                 z = createCardObject(xLoopingCardValue, xLoopingCardSuit);
 
-                if (pairSettings.holdingCardPosition === 1) {
+                console.log("pairSettings.holdingCardPosition is: " + pairSettings.holdingCardPosition);
+                if (pairSettings.holdingCardPosition == 1) {
                     card1 = y;
                     card2 = z;
-                } else {
+                } else if (pairSettings.holdingCardPosition == 2) {
                     card1 = z;
                     card2 = y;
+                } else {
+                    console.log("ERROR");
                 }
 
                 // Clear the object
