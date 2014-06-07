@@ -38,8 +38,8 @@ function onSelectBoxChange() {
 }
 
 function doIt(pairSettings) {
-    console.log("Doing it");
-    console.dir(pairSettings);
+    //console.log("Doing it");
+    //console.dir(pairSettings);
 
     var xHoldingCardValue,
         xLoopingCardSuit,
@@ -50,7 +50,9 @@ function doIt(pairSettings) {
     // or: cardPairs.groups.pairs (later)
     // TODO: watch out for global variable
     cardPairs = {};
-    //var groups = [];
+    var currentGroup = [];
+    var currentPairs = [];
+    var groups = [];
     var pairs = [];
     var currentPair = {};
     var card1, card2;
@@ -71,7 +73,6 @@ function doIt(pairSettings) {
             // Here we have the looping suits
 
             for (var k = 0; k < 13; k ++) {
-
                 // Here we have the 13 card values being added
 
                 xHoldingCardValue = pairSettings.holdingCard;
@@ -82,7 +83,7 @@ function doIt(pairSettings) {
                 y = createCardObject(xHoldingCardValue, xHoldingCardSuit);
                 z = createCardObject(xLoopingCardValue, xLoopingCardSuit);
 
-                console.log("pairSettings.holdingCardPosition is: " + pairSettings.holdingCardPosition);
+                //console.log("pairSettings.holdingCardPosition is: " + pairSettings.holdingCardPosition);
                 if (pairSettings.holdingCardPosition == 1) {
                     card1 = y;
                     card2 = z;
@@ -93,19 +94,32 @@ function doIt(pairSettings) {
                     console.log("ERROR");
                 }
 
-                // Clear the object
+                // Clear the objects
+                currentPairs = [];
                 currentPair = {};
                 currentPair["card1"] = card1;
                 currentPair["card2"] = card2;
-                pairs.push(currentPair);
+
+                currentPairs.push(currentPair);
+                //console.log("currentPairs", JSON.stringify(currentPairs));
+                // Push the current pair into the currentGroup
+                currentGroup.push(currentPairs);
 
                 //console.log(xHoldingCardValue + " of " + xHoldingCardSuit + " | " + xLoopingCardValue + " of " + xLoopingCardSuit);
             }
+
+            //console.log("current state of groups", JSON.stringify(groups));
+            // Push the finished currentGroup into the groups
+            groups.push(currentGroup);
+            // Clear the variable before the next loop
+            currentGroup = [];
+
         }
     }
-    cardPairs.pairs = pairs;
-    console.dir(cardPairs);
-    cardPairs.pairs = pairs;
+    // Attach all the groups to the object
+    cardPairs.groups = groups;
+    console.log("cardPairs", JSON.stringify(cardPairs));
+    //cardPairs.pairs = pairs;
     renderCardPairsTemplate(cardPairs);
     addRandomizeButton();
 }
@@ -198,3 +212,23 @@ var loopPattern = {
         "looping": ["spades", "hearts", "diamonds", "clubs"]
     }
 };
+
+
+/*
+* Use this to turn on logging: (in your local extensions file)
+*/
+//Handlebars.logger.log = function(level) {
+    //if(level >= Handlebars.logger.level) {
+    //console.log.apply(console, [].concat(["Handlebars: "], _.toArray(arguments)));
+    //}
+//};
+//// DEBUG: 0, INFO: 1, WARN: 2, ERROR: 3, 
+//Handlebars.registerHelper('log', Handlebars.logger.log);
+
+//// Std level is 3, when set to 0, handlebars will log all compilation results
+//Handlebars.logger.level = 0; 
+
+/* 
+* Log can also be used in templates: '{{log 0 this "myString" accountName}}'
+* Logs all the passed data when logger.level = 0
+*/

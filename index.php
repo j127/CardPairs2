@@ -76,10 +76,14 @@ _gaq.push(['_trackPageview']);
 <script id="cardPairsTemplate" type="text/x-handlebars-template">
 <table>
     <tbody>
-        {{#each pairs}}
-        <tr>
-            <td><span class="{{ card1.color }}">{{ card1.value }}{{{ card1.suit }}}</span></td><td><span class="{{ card2.color }}">{{ card2.value }}{{{ card2.suit }}}</span></td>
-        </tr>
+        {{#each groups}}
+            {{#each this}}
+            {{#each this}}
+            <tr>
+                <td><span class="{{ this.card1.color }}">{{ this.card1.value }}{{{ this.card1.suit }}}</span></td><td><span class="{{ this.card2.color }}">{{ this.card2.value }}{{{ this.card2.suit }}}</span></td>
+            </tr>
+            {{/each}}
+            {{/each}}
         {{/each}}
     </tbody>
 </table>
