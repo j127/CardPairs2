@@ -118,23 +118,78 @@ function doIt(pairSettings) {
     }
     // Attach all the groups to the object
     cardPairs.groups = groups;
-    console.log("cardPairs", JSON.stringify(cardPairs));
+    //console.log("cardPairs", JSON.stringify(cardPairs));
     //cardPairs.pairs = pairs;
     renderCardPairsTemplate(cardPairs);
-    addRandomizeButton();
+    addRandomizeButtons();
 }
 
-function addRandomizeButton() {
+function addRandomizeButtons() {
     var randomizeButton = $("#randomizeButton");
+    var flattenAndRandomizeButton = $("#flattenAndRandomizeButton");
 
     randomizeButton.fadeIn();
+    flattenAndRandomizeButton.fadeIn();
+
     randomizeButton.on("click", function (e) {
         e.preventDefault();
 
-        cardPairs.pairs = _.shuffle(cardPairs.pairs);
+        // The next line only shuffles the order of the groups, not the pairs inside
+        cardPairs.groups = _.shuffle(cardPairs.groups);
+        for (var i = 0, len = cardPairs.groups.length; i < len; i ++) {
+            console.log("Shuffling");
+            cardPairs.groups[i] = _.shuffle(cardPairs.groups[i]);
+        }
+
+        renderCardPairsTemplate(cardPairs);
+    });
+    
+    flattenAndRandomizeButton.on("click", function (e) {
+        e.preventDefault();
+
+        currentGroup = [];
+        groups = [];
+        x = _.flatten(cardPairs.groups);
+        y = _.shuffle(x);
+        //console.dir(JSON.stringify(x));
+        //console.dir(JSON.stringify(y));
+        loopLength = y.length / 13;
+        console.log(loopLength);
+
+        // TODO: Something isn't right here yet
+        var i, j, temporary;
+        for (i = 0, j = y.length; i < j; i += loopLength) {
+            currentGroup = y.slice(i, i + loopLength);
+            groups.push(currentGroup);
+        }
+
+        //while (y.length > 0) {
+
+        //}
+        //for (var i = 0, len = loopLength; i < len; i ++) {
+            //// TODO: NO... this loops full 100+ times eight times
+            //for (var j = 0, len = y.length; j < len; j ++) {
+                //currentGroup.push(y[i]);
+            //}
+            //groups.push(currentGroup);
+            //// Clear variable before next loop
+            //currentGroup = [];
+        //}
+
+        cardPairs.groups = groups;
+
+        // The next line only shuffles the order of the groups, not the pairs inside
+        //cardPairs.groups = _.shuffle(cardPairs.groups);
+        //for (var i = 0, len = cardPairs.groups.length; i < len; i ++) {
+            //console.log("Shuffling");
+            //cardPairs.groups[i] = _.shuffle(cardPairs.groups[i]);
+        //}
+
         renderCardPairsTemplate(cardPairs);
 
     });
+
+
 
 }
 

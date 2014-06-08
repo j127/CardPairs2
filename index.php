@@ -63,7 +63,7 @@ _gaq.push(['_trackPageview']);
         <option value="hd-shdc">Hold &hearts; &diams;, loop over &spades; &hearts; &diams; &clubs;</option>
     </select> <span class="validation-warning">*</span>
 
-    <!-- <img id="loaderGif" src="images/loader.gif"> --><button id="generatePairs" class="pure-button pure-button-primary" disabled>Generate Pairs</button> <button id="randomizeButton" class="pure-button">Randomize Pairs</button>
+    <!-- <img id="loaderGif" src="images/loader.gif"> --><button id="generatePairs" class="pure-button pure-button-primary" disabled>Generate Pairs</button> <button id="randomizeButton" class="pure-button">Randomize Pairs</button> <button id="flattenAndRandomizeButton" class="pure-button">Shuffle Completely</button>
 </form>
         <div id="output"></div>
     </div>

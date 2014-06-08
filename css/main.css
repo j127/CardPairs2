@@ -50,7 +50,7 @@ noscript {
 button#generatePairs {
     display: none;
 }
-button#randomizeButton {
+button#randomizeButton, button#flattenAndRandomizeButton {
     display: none;
 }
 table {
